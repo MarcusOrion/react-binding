@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  /*const [count, setCount] = useState(0);
   return (
     <>
       <div className="container text-center">
@@ -18,5 +18,19 @@ export default function Counter() {
         </button>
       </div>
     </>
+  );
+}*/
+
+  // Crea un bottone che alterni la propria classe stilistica (es. da primary a success) ad ogni click, mutandone dinamicamente l'aspetto grafico
+  const [isPrimary, setIsPrimary] = useState(true);
+  return (
+    <div className="container mt-5 text-center">
+      <button
+        className={`btn ${isPrimary ? "btn-primary" : "btn-success"}`}
+        onClick={() => setIsPrimary(!isPrimary)}
+      >
+        {isPrimary ? "Cliccami" : "Fatto!"}
+      </button>
+    </div>
   );
 }
