@@ -35,7 +35,7 @@ export default function Counter() {
   );*/
 
   // Creare un componente con tre pulsanti ed un paragrafo. Creare una variabile di stato reattiva per gestire l’allineamento del paragrafo. Per ogni pulsante, impostare l’evento onClick e impostare l’allineamento in base al pulsante cliccato
-  const [alignment, setAlignment] = useState("text-start");
+  /*const [alignment, setAlignment] = useState("text-start");
   return (
     <div className="container mt-5 text-center">
       <div className="row justify-content-center">
@@ -63,6 +63,50 @@ export default function Counter() {
       </div>
       <div className="card p-3 shadow-sm mt-2">
         <p className={`m-0 ${alignment}`}>Lorem Ipsum eccetera eccetera.</p>
+      </div>
+    </div>
+  );*/
+
+  // Visualizza un messaggio di benvenuto che si aggiorni in tempo reale scegliendo tra diverse lingue tramite una serie di bottoni dedicati
+  const [language, setLanguage] = useState(
+    "Scegli in quale lingua vuoi farti salutare!",
+  );
+  return (
+    <div className="container mt-5 text-center">
+      <div className="row justify-content-center">
+        <div className="col-md-6 text-center">
+          <h1>{language}</h1>
+          <button
+            className="btn btn-primary me-3 mt-3"
+            onClick={() => setLanguage("Hello")}
+          >
+            Inglese
+          </button>
+          <button
+            className="btn btn-primary me-3 mt-3"
+            onClick={() => setLanguage("Ciao")}
+          >
+            Italiano
+          </button>
+          <button
+            className="btn btn-primary me-3 mt-3"
+            onClick={() => setLanguage("Salut")}
+          >
+            Francese
+          </button>
+          <button
+            className="btn btn-primary me-3 mt-3"
+            onClick={() => setLanguage("Hola")}
+          >
+            Spagnolo
+          </button>
+          <button
+            className="btn btn-primary me-3 mt-3"
+            onClick={() => setLanguage("Hallo")}
+          >
+            Olandese
+          </button>
+        </div>
       </div>
     </div>
   );
