@@ -20,7 +20,6 @@ export default function Counter() {
     </>
   );
 }*/
-
   // Crea un bottone che alterni la propria classe stilistica (es. da primary a success) ad ogni click, mutandone dinamicamente l'aspetto grafico
   /*const [isPrimary, setIsPrimary] = useState(true);
   return (
@@ -33,7 +32,6 @@ export default function Counter() {
       </button>
     </div>
   );*/
-
   // Creare un componente con tre pulsanti ed un paragrafo. Creare una variabile di stato reattiva per gestire l’allineamento del paragrafo. Per ogni pulsante, impostare l’evento onClick e impostare l’allineamento in base al pulsante cliccato
   /*const [alignment, setAlignment] = useState("text-start");
   return (
@@ -66,9 +64,8 @@ export default function Counter() {
       </div>
     </div>
   );*/
-
   // Visualizza un messaggio di benvenuto che si aggiorni in tempo reale scegliendo tra diverse lingue tramite una serie di bottoni dedicati
-  const [language, setLanguage] = useState(
+  /*const [language, setLanguage] = useState(
     "Scegli in quale lingua vuoi farti salutare!",
   );
   return (
@@ -109,5 +106,22 @@ export default function Counter() {
         </div>
       </div>
     </div>
+  );*/
+
+  //                         ++++++++++++++++++++++++++++                CONTROLLED ELEMENT EXERCISES
+  // Contatore caratteri: mostra dinamicamente il numero di caratteri inseriti in una casella di input o textarea, aggiornando il conteggio ad ogni digitazione
+  const [char, setChar] = useState("");
+  return (
+    <>
+      <div className="container text-center mb-6">
+        <p className="h4 mt-3 mb-3">Scrivi qualcosa</p>
+        <input
+          type="text"
+          value={char}
+          onChange={(e) => setChar(e.target.value)}
+        />
+        <p>Il testo è lungo {char.length} caratteri</p>
+      </div>
+    </>
   );
 }
