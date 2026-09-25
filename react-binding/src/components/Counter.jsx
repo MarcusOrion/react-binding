@@ -1,6 +1,7 @@
 // Implementa un contatore numerico incrementabile via bottone e aggiungi un pulsante dedicato per azzerare istantaneamente il valore
 import { useState } from "react";
 
+const nameList = ["giorgio", "marco", "luce", "annalucia", "alessia", "simona"];
 export default function Counter() {
   /*const [count, setCount] = useState(0);
   return (
@@ -107,10 +108,9 @@ export default function Counter() {
       </div>
     </div>
   );*/
-
   //                         ++++++++++++++++++++++++++++                CONTROLLED ELEMENT EXERCISES
   // Contatore caratteri: mostra dinamicamente il numero di caratteri inseriti in una casella di input o textarea, aggiornando il conteggio ad ogni digitazione
-  const [char, setChar] = useState("");
+  /*const [char, setChar] = useState("");
   return (
     <>
       <div className="container text-center mb-6">
@@ -122,6 +122,36 @@ export default function Counter() {
         />
         <p>Il testo è lungo {char.length} caratteri</p>
       </div>
+    </>
+  );*/
+  // filtra istantaneamente un array di nomi visualizzati a schermo mostrando solo quelli che contengono la stringa digitata nell'input
+
+  const [name, setName] = useState("");
+  //Derived State
+  const filteredList = nameList.filter((item) =>
+    item.includes(name.toLowerCase()),
+  );
+  return (
+    <>
+      <section className="container">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          className="form-control"
+          id="name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <ul className="list-group">
+          {filteredList.map((item) => (
+            <li className="list-group-item txt-capitalize" key={item}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }
