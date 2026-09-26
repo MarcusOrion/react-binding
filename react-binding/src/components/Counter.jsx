@@ -1,7 +1,7 @@
 // Implementa un contatore numerico incrementabile via bottone e aggiungi un pulsante dedicato per azzerare istantaneamente il valore
 import { useState } from "react";
 
-const nameList = ["giorgio", "marco", "luce", "annalucia", "alessia", "simona"];
+//const nameList = ["giorgio", "marco", "luce", "annalucia", "alessia", "simona"];
 export default function Counter() {
   /*const [count, setCount] = useState(0);
   return (
@@ -125,8 +125,7 @@ export default function Counter() {
     </>
   );*/
   // filtra istantaneamente un array di nomi visualizzati a schermo mostrando solo quelli che contengono la stringa digitata nell'input
-
-  const [name, setName] = useState("");
+  /*const [name, setName] = useState("");
   //Derived State
   const filteredList = nameList.filter((item) =>
     item.includes(name.toLowerCase()),
@@ -153,5 +152,28 @@ export default function Counter() {
         </ul>
       </section>
     </>
+  );*/
+  // aggiorna il contenuto di un tag <h1> con il testo inserito dall'utente in una casella di input, sostituendo il valore precedente ad ogni modifica
+  const [content, setContent] = useState("");
+  return (
+    <>
+      <div className="flex flex-col items-center justify-center min-h-[50vh] gap-4">
+        <div className="w-full max-w-xs flex flex-col items-center">
+          <label htmlFor="text" className="form-label text-center w-full mb-1">
+            Testo
+          </label>
+          <input
+            id="text"
+            className="form-control w-[30px] px-3 py-2 border rounded-md"
+            type="text"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
+        <h1 className="text-xl font-semibold text-center">{content}</h1>
+      </div>
+    </>
   );
+
+  //  unisci in tempo reale il valore di due input distinti (nome e cognome) visualizzando il risultato completo in un unico elemento di testo
 }
